@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MensagemCreateDlg" widgetVar="MensagemCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMensagemTitle}">
+            <h:form id="MensagemCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{mensagemController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateMensagemLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{mensagemController.selected.id}" title="#{bundle.CreateMensagemTitle_id}" required="true" requiredMessage="#{bundle.CreateMensagemRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateMensagemLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{mensagemController.selected.nome}" title="#{bundle.CreateMensagemTitle_nome}" required="true" requiredMessage="#{bundle.CreateMensagemRequiredMessage_nome}"/>
+                        <p:outputLabel value="#{bundle.CreateMensagemLabel_contato}" for="contato" />
+                        <p:inputText id="contato" value="#{mensagemController.selected.contato}" title="#{bundle.CreateMensagemTitle_contato}" required="true" requiredMessage="#{bundle.CreateMensagemRequiredMessage_contato}"/>
+                        <p:outputLabel value="#{bundle.CreateMensagemLabel_mensagem}" for="mensagem" />
+                        <p:inputText id="mensagem" value="#{mensagemController.selected.mensagem}" title="#{bundle.CreateMensagemTitle_mensagem}" required="true" requiredMessage="#{bundle.CreateMensagemRequiredMessage_mensagem}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{mensagemController.create}" value="#{bundle.Save}" update="display,:MensagemListForm:datalist,:growl" oncomplete="handleSubmit(args,'MensagemCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MensagemCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pm="http://primefaces.org/mobile">
+
+
+    <h:head>
+        <title> Biblioteca</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+
+        <p:layout fullPage="true">
+
+
+            <!-- North/Cabeçalho -->
+            <p>      </p><p:layoutUnit position="north" size="350">
+                <pm:page>
+                    <pm:header title="Header">
+                        <p:graphicImage value="/images/index/capa01.jpg"/>
+                    </pm:header>
+                </pm:page>
+            </p:layoutUnit>
+            <!-- FIM North/Cabeçalho -->
+
+
+            <!-- South/Footer -->
+            <p:layoutUnit position="south" size="50">
+                <h3>Desenvolvido por Wallace Santana</h3>
+            </p:layoutUnit>
+            <!-- FIM South/Footer -->
+
+
+            <!-- West/Esquerda/Oeste -->
+            <p:layoutUnit header="Menu" position="west" size="200">
+                <p:menu >
+                    <p:submenu label="Menu">
+                        <p:menuitem value="Home" url="/faces/index.xhtml" icon="ui-icon-home"/>
+                        <p:menuitem value="Livros" url="/faces/livros.xhtml"/>
+                        <p:menuitem value="Autores" url="/faces/autores.xhtml"/>
+                        <p:menuitem value="Nosso Endereço" url="/faces/endereco.xhtml"/>
+                        <p:menuitem value="Deixe sua mensagem" url="/faces/mensagem.xhtml"/>
+                    </p:submenu>
+                    <p:submenu label="Relatórios">
+                        <p:menuitem value="Livros" url="/faces/rellivros.xhtml"/>
+                    </p:submenu>
+                    <p:submenu label="Manutenção">
+                        <p:menuitem value="Autores" url="autor/List.xhtml"/>
+                        <p:menuitem value="Editoras" url="editora/List.xhtml"/>
+                        <p:menuitem value="Categorias" url="categoria/List.xhtml"/>
+                        <p:menuitem value="Livros" url="livro/List.xhtml"/>
+                        <p:menuitem value="Usuários" url="usuario/List.xhtml"/>
+                    </p:submenu>
+                </p:menu>
+            </p:layoutUnit>
+            <!-- FIM West/Esquerda/Oeste -->
+
+
+
+            <!-- Center/Centro -->
+            <p:layoutUnit position="center">
+
+                <h:form id="MensagemCreateForm">
+                    <h:panelGroup id="display">
+                        <p:panelGrid columns="2" rendered="#{mensagemController.selected != null}">
+
+                            <p:outputLabel value="#{bundle.CreateMensagemLabel_nome}" for="nome" />
+                            <p:inputText id="nome" value="#{mensagemController.selected.nome}" title="#{bundle.CreateMensagemTitle_nome}" required="true" requiredMessage="#{bundle.CreateMensagemRequiredMessage_nome}"/>
+                            <p:outputLabel value="#{bundle.CreateMensagemLabel_contato}" for="contato" />
+                            <p:inputText id="contato" value="#{mensagemController.selected.contato}" title="#{bundle.CreateMensagemTitle_contato}" required="true" requiredMessage="#{bundle.CreateMensagemRequiredMessage_contato}"/>
+                            <p:outputLabel value="#{bundle.CreateMensagemLabel_mensagem}" for="mensagem" />
+                            <p:inputText id="mensagem" value="#{mensagemController.selected.mensagem}" title="#{bundle.CreateMensagemTitle_mensagem}" required="true" requiredMessage="#{bundle.CreateMensagemRequiredMessage_mensagem}"/>
+                        </p:panelGrid>
+                        <p:commandButton actionListener="#{mensagemController.create}" value="#{bundle.Save}" update="display" oncomplete="handleSubmit(args,'MensagemCreateDialog');"/>
+                        <p:commandButton value="#{bundle.Cancel}" onclick="MensagemCreateDialog.hide()"/>
+                    </h:panelGroup>
+                </h:form>
+
+            </p:layoutUnit>
+            <!-- FIM Center/Centro -->
+        </p:layout>
+
+        <br />
+
+    </h:body>
+
+</html>
+

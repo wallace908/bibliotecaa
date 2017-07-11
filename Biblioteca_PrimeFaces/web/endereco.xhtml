@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pm="http://primefaces.org/mobile">
+
+
+    <h:head>
+        <title>Nosso Endereço</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <script src="http://maps.google.com/maps/api/js?sensor=true|false" type="text/javascript" />
+    </h:head>
+    <h:body>
+
+        <p:layout fullPage="true">
+
+
+            <!-- North/Cabeçalho -->
+            <p>      </p><p:layoutUnit position="north" size="190">
+                <pm:page>
+                    <pm:header title="Header">
+                        <p:graphicImage value="3.jpg"/>
+                    </pm:header>
+                </pm:page>
+            </p:layoutUnit>
+            <!-- FIM North/Cabeçalho -->
+
+
+            <!-- South/Footer -->
+            <p:layoutUnit position="south" size="50">
+                <h3>Desenvolvido por Wallace Santana </h3>
+            </p:layoutUnit>
+            <!-- FIM South/Footer -->
+
+
+            <!-- West/Esquerda/Oeste -->
+            <p:layoutUnit header="Menu" position="west" size="200">
+                <p:menu >
+                    <p:submenu label="Menu">
+                        <p:menuitem value="Home" url="/faces/index.xhtml" icon="ui-icon-home"/>
+                        <p:menuitem value="Livros" url="/faces/livros.xhtml"/>
+                        <p:menuitem value="Autores" url="/faces/autores.xhtml"/>
+                        <p:menuitem value="Nosso Endereço" url="/faces/endereco.xhtml"/>
+                        <p:menuitem value="Deixe sua mensagem" url="/faces/mensagem.xhtml"/>
+                    </p:submenu>
+                    <p:submenu label="Relatórios">
+                        <p:menuitem value="Livros" url="/faces/rellivros.xhtml"/>
+                    </p:submenu>
+                    <p:submenu label="Manutenção">
+                        <p:menuitem value="Autores" url="autor/List.xhtml"/>
+                        <p:menuitem value="Editoras" url="editora/List.xhtml"/>
+                        <p:menuitem value="Categorias" url="categoria/List.xhtml"/>
+                        <p:menuitem value="Livros" url="livro/List.xhtml"/>
+                        <p:menuitem value="Usuários" url="usuario/List.xhtml"/>
+                    </p:submenu>
+                </p:menu>
+
+
+            </p:layoutUnit>
+            <!-- FIM West/Esquerda/Oeste -->
+
+
+
+            <!-- Center/Centro -->
+            <p:layoutUnit position="center">
+
+                <div class="ui-g">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-10">
+                        <br/>
+                        <br/>
+                        <h2>Onde nos localizar?</h2>
+                        <p>Nosso endereço fica na Rua José Angelo, 18 - centro, Dom Cavati "terra da linguiça" - MG, CEP 35148s-000</p>
+
+                        <p:gmap center="-19.4798212, -42.5492803" zoom="15" type="hybrid"
+                                style="width:600px;height:400px" />
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div class="ui-g-1"></div>
+                </div>
+
+            </p:layoutUnit>
+            <!-- FIM Center/Centro -->
+        </p:layout>
+
+    </h:body>
+</html>
+

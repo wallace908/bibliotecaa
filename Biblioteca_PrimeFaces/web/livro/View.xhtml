@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LivroViewDlg" widgetVar="LivroViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewLivroTitle}">
+            <h:form id="LivroViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{livroController.selected != null}">
+                        <h:outputText value="#{bundle.ViewLivroLabel_id}"/>
+                        <h:outputText value="#{livroController.selected.id}" title="#{bundle.ViewLivroTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewLivroLabel_nome}"/>
+                        <h:outputText value="#{livroController.selected.nome}" title="#{bundle.ViewLivroTitle_nome}"/>
+                        <h:outputText value="#{bundle.ViewLivroLabel_numPaginas}"/>
+                        <h:outputText value="#{livroController.selected.numPaginas}" title="#{bundle.ViewLivroTitle_numPaginas}"/>
+                        <h:outputText value="#{bundle.ViewLivroLabel_edicao}"/>
+                        <h:outputText value="#{livroController.selected.edicao}" title="#{bundle.ViewLivroTitle_edicao}"/>
+                        <h:outputText value="#{bundle.ViewLivroLabel_isbn}"/>
+                        <h:outputText value="#{livroController.selected.isbn}" title="#{bundle.ViewLivroTitle_isbn}"/>
+                        <h:outputText value="#{bundle.ViewLivroLabel_imagem}"/>
+                        <h:outputText value="#{livroController.selected.imagem}" title="#{bundle.ViewLivroTitle_imagem}"/>
+                        <h:outputText value="#{bundle.ViewLivroLabel_idAutor}"/>
+                        <h:outputText value="#{livroController.selected.idAutor}" title="#{bundle.ViewLivroTitle_idAutor}"/>
+                        <h:outputText value="#{bundle.ViewLivroLabel_idCategoria}"/>
+                        <h:outputText value="#{livroController.selected.idCategoria}" title="#{bundle.ViewLivroTitle_idCategoria}"/>
+                        <h:outputText value="#{bundle.ViewLivroLabel_idEditora}"/>
+                        <h:outputText value="#{livroController.selected.idEditora}" title="#{bundle.ViewLivroTitle_idEditora}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="LivroViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
